@@ -1,0 +1,209 @@
+<head>
+	<title>Radio Activity Session</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	{{>navigationBar}}
+	<div class="container">
+		{{>breadBoard}}
+		<div class="row">
+			{{>sessionInfoPanel}}
+			{{>sessionMainPanel}}
+		</div>
+		
+	</div>
+	
+</body>
+
+<!-- Navigation Bar Template-->
+<template name="navigationBar">
+	<div class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">CEIT OpenILabs</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav ">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Lab List</a></li>
+						<li><a href="#">About</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					{{> loginButtons}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="breadBoard">
+	<ol class="breadcrumb">
+		<li><a href="#">Home</a></li>
+		<li><a href="#">RadioActivityLab</a></li>
+		<li class="active">Example Sessions</li>
+	</ol>
+</template>
+
+<template name="sessionInfoPanel">
+	<div class="col-md-3 no-right-padding">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title"><strong>Session Status</strong></h3>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<li>
+						<strong>Queue</strong>
+						<ul>
+							<li>Size: 0</li>
+							<li>Wait: 0</li>
+						</ul>						
+					</li>
+					<li>
+						<strong>Status</strong>
+						<ul>
+							<li>Powered Down</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Users:</strong> 
+						<ul>
+							{{#each users}}
+								<li>
+									<span class={{colorCode}}>{{userName}}</span>
+									{{#if currentControl}}
+										<span class="badge">Controller</span>
+									{{else}}
+										{{#if isController}}
+										<button type="button" class="btn btn-primary btn-xs pass-control-button">Pass Control</button>	
+										{{/if}}
+									{{/if}}
+								</li>
+							{{/each}}
+						</ul>
+						
+					</li>
+					
+				</ul>
+				
+			</div>
+			
+		</div>
+	</div>	
+</template>
+
+<template name="sessionMainPanel">
+	<div class="col-md-9">
+		<div class="panel panel-primary {{backgroundColor}}">
+			<div class="panel-heading">
+				<h3 class="panel-title text-center"><strong>Radio Activity Experiment</strong></h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-5">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x240" src="live.png">
+						</div>
+					</div>
+
+					<div class="col-sm-7">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<h4 class="text-center"><strong>Setup Experiment</strong></h4>
+								<form role="form">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label>Source</label>
+												<select class="form-control" {{disable}}>
+													<option>Strontium-90</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Repeat</label>
+												<input id="repeatField" class="form-control {{repeatFocus}}" type="text" value={{inputRepeat}}  {{disable}} requried>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Duration</label>
+												<input {{durationFocus}} id="durationField" class="form-control {{durationFocus}}" type="text" value={{inputDuration}} {{disable}} requried>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label>Distances</label>
+												<input id="distancesField" class="form-control {{distancesFocus}}" type="text" value={{inputDistances}} {{disable}} requried>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<button type="button" class="btn btn-primary btn-block" {{disable}}>Validate Experiment</button>
+										</div>
+									</div>
+									
+								</form>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+				</div>
+				
+
+				<div class="row">
+					{{>chatBox}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="chatBox">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title"><strong>Chat Box</strong></h4>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="panel panel-default">
+							<div class="panel-body scrollable">
+								<ul class="messagesList">
+									{{#each messages}}
+										<li><strong>{{userName}}</strong>: {{message}}</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>	
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="input-group">
+							<input id="textInput" type="text" class="form-control" required {{disable}}>
+							<span class="input-group-btn">
+								<button id="sendButton" class="btn btn-default" type="button" {{disable}}>Send</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
