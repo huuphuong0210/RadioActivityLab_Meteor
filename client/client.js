@@ -4,9 +4,9 @@ var currentControlId = "EyC7mddPcLyeWwW7t";
 var backGroundColorId = "EyuLrBtFNGK34kZZJ";
 
 //Account.UI.Configuration
-Accounts.ui.config({
-	passwordSignupFields: 'USERNAME_AND_EMAIL'
-});
+// Accounts.ui.config({
+// 	passwordSignupFields: 'USERNAME_AND_EMAIL'
+// });
 
 //Helper function
 // Template.sessionInfoPanel.users = function(){
@@ -111,7 +111,6 @@ Template.sessionMainPanel.helpers({
 		}
 		return "";
 		
-		
 	}
 
 });
@@ -136,6 +135,7 @@ Template.sessionInfoPanel.events({
 		GlobalInput.update({_id: currentControlId},{$set: {controlUserID: this.userID}});
 	}
 });
+
 //Event handler for Experiment Setup Form 
 Template.sessionMainPanel.events({
 	'keyup #repeatField': function(){
