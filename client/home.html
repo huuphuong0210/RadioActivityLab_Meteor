@@ -1,0 +1,72 @@
+<template name="home">
+	{{>navigationBar}}
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="/">Home</a></li>
+				<li class="active">RadioActivityLab</li>
+			</ol>
+			<div class="row">
+				<div class="col-md-9">
+					{{ > sessionList}}
+				</div>
+				<div class="col-md-3">
+					{{ > createNewSession}}
+				</div>
+			</div>	
+	</div>
+</template>	
+
+<template name="sessionList">
+	<div class="panel panel-primary" id="session-panel">
+		<div class="panel-heading">
+			<h3 class="panel-title"><strong>Current Session</strong></h3>
+		</div>
+		<div class="panel-body">
+			{{#if sessionList}}
+			{{else}}
+				<p class="text-center">There is no current session at the moment, please create a new session to start</p>
+				<span style="font-size: 35px;" class="glyphicon glyphicon-plus-sign text-center" aria-hidden="true"></span>
+			{{/if}}
+		</div>
+	</div>
+</template>
+
+<template name="createNewSession">
+	<div class="panel panel-info">
+	 	<div class="panel-heading">
+	    	<h3 class="panel-title"><strong>Create New Session</strong></h3>
+	  	</div>
+	  	<div class="panel-body">
+	    	<form>
+	    		<div class="form-group">
+					<div class="radio" style="display: inline-block;">
+						<label>
+						    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+						    Private
+						</label>
+					</div>
+					<div class="radio" style="display: inline-block; margin-left: 30px;">
+					  	<label>
+					    	<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Public
+					  	</label>
+					</div>
+				</div>
+				<div class="form-group">
+			    	<label for="new-session-name">Title *</label>
+			    	<input type="text" class="form-control" id="new-session-name" name="session-name" placeholder="Enter session title">
+				</div>
+				<div class="form-group">
+			    	<label for="new-max-member">Maximum member *</label>
+			    	<input type="text" class="form-control" id="new-max-member" name="max-member" placeholder="Enter maximum member" value="4">
+				</div>
+				<div class="form-group">
+			    	<label for="new-description">Description *</label>
+					<textarea name="new-description" class="form-control" rows="3"></textarea>
+				</div>
+				<div class="form-group pull-right">
+					<button type="submit" class="btn btn-primary ">Submit</button>
+				</div>
+	    	</form>
+	  	</div>
+	</div>
+</template>

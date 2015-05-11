@@ -4,14 +4,14 @@ var currentControlId = "EyC7mddPcLyeWwW7t";
 var backGroundColorId = "EyuLrBtFNGK34kZZJ";
 
 //Account.UI.Configuration
-// Accounts.ui.config({
-// 	passwordSignupFields: 'USERNAME_AND_EMAIL'
-// });
+Accounts.ui.config({
+	passwordSignupFields: 'USERNAME_AND_EMAIL'
+});
 
 //Helper function
-// Template.sessionInfoPanel.users = function(){
-// 	return UsersLogin.find();
-// }
+Template.sessionInfoPanel.users = function(){
+	return UsersLogin.find();
+}
 
 Template.sessionInfoPanel.helpers({
 	users: function(){

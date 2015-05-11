@@ -1,46 +1,18 @@
-<head>
-	<title>Radio Activity Session</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-	{{>navigationBar}}
-	<div class="container">
-		{{>breadBoard}}
-		<div class="row">
-			{{>sessionInfoPanel}}
-			{{>sessionMainPanel}}
-		</div>	
-	</div>
-</body>
-
-<!-- Navigation Bar Template-->
-<template name="navigationBar">
-	<div class="navbar navbar-inverse navbar-static-top">
+<template name="session">
+	<head>
+		<title>Radio Activity Session</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		{{>navigationBar}}
 		<div class="container">
-			<div class="navbar-header">
-				<a href="#" class="navbar-brand">CEIT OpenILabs</a>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav ">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Lab List</a></li>
-						<li><a href="#">About</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<!-- {{> loginButtons}} -->
-				</ul>
-			</div>
+			{{>breadBoard}}
+			<div class="row">
+				{{>sessionInfoPanel}}
+				{{>sessionMainPanel}}
+			</div>	
 		</div>
-	</div>
-</template>
-
-
-<template name="breadBoard">
-	<ol class="breadcrumb">
-		<li><a href="#">Home</a></li>
-		<li><a href="#">RadioActivityLab</a></li>
-		<li class="active">Example Sessions</li>
-	</ol>
+	</body>
 </template>
 
 <template name="sessionInfoPanel">

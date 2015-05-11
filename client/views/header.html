@@ -1,0 +1,28 @@
+<!-- Navigation Bar Template-->
+<template name="navigationBar">
+	<div class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">CEIT OpenILabs</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav ">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Lab List</a></li>
+						<li><a href="#">About</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					{{> loginButtons}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="breadBoard">
+	<ol class="breadcrumb">
+		<li><a href="#">Home</a></li>
+		<li><a href="#">RadioActivityLab</a></li>
+		<li class="active">Example Sessions</li>
+	</ol>
+</template>

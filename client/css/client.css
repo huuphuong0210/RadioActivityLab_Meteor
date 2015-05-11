@@ -39,13 +39,3 @@
 .messagesList{
 	padding-left: 10px;
 }
-
-/*Session Panel*/
-
-#session-panel{
-	min-height: 477px;
-}
-
-#session-panel .panel-body{
-	text-align: center;
-}
